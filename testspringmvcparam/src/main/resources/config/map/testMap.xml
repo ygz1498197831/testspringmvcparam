@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.testspringmvcparam.demo.dao.TestDao">
+
+<resultMap id="getAllAssetMap" type="com.testspringmvcparam.demo.model.Port">
+    <result property="port" column="port"></result>
+    <association property="asset" javaType="com.testspringmvcparam.demo.model.Asset">
+        <id property="assetId" column="assetId"></id>
+        <result property="assetName" column="assetName"></result>
+    </association>
+</resultMap>
+
+<select id="getAllAsset" parameterType="java.util.Map" resultMap="getAllAssetMap">
+    SELECT
+	x1.port,
+    x2.assetId,
+    x2.assetName
+    FROM asset_port x1 LEFT JOIN asset_all x2 ON x1.ipId=x2.assetId
+    WHERE 1=1
+</select>
+
+</mapper>

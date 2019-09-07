@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    username: root
+    password: 123
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/csa?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    type: com.alibaba.druid.pool.DruidDataSource
+
+
+
+mybatis:
+  config-location: classpath:config/mybatis.xml
+  mapper-locations: classpath:config/map/*.xml
